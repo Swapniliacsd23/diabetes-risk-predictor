@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetes Risk Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <!-- Logo and Centered Title -->
+    <div class="header">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        <h1>Diabetes Risk Prediction</h1>
+    </div>
+
+    <div class="container">
+        <form method="post">
+            <label>Pregnancies:</label>
+            <input type="number" name="Pregnancies" step="any" required>
+
+            <label>Glucose:</label>
+            <input type="number" name="Glucose" step="any" required>
+
+            <label>BloodPressure:</label>
+            <input type="number" name="BloodPressure" step="any" required>
+
+            <label>SkinThickness:</label>
+            <input type="number" name="SkinThickness" step="any" required>
+
+            <label>Insulin:</label>
+            <input type="number" name="Insulin" step="any" required>
+
+            <label>BMI:</label>
+            <input type="number" name="BMI" step="any" required>
+
+            <label>DiabetesPedigreeFunction:</label>
+            <input type="number" name="DiabetesPedigreeFunction" step="any" required>
+
+            <label>Age:</label>
+            <input type="number" name="Age" step="any" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">{{ prediction }}</div>
+        {% endif %}
+
+        {% if graph_url %}
+            <img src="{{ graph_url }}" alt="Prediction Graph" class="graph">
+        {% endif %}
+    </div>
+
+</body>
+</html>
+
